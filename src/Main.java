@@ -1,5 +1,8 @@
+import java.awt.*;
+
 public class Main {
     public static void main(String[] args) {
+        // #1
         Cat[] cats = new Cat[3];
         cats[0] = new Cat("Гуся");
         cats[1] = new Cat("Мартин");
@@ -15,5 +18,25 @@ public class Main {
                 System.out.println("Кот " + cats[i].name + " голодный.");
             }
         }
+
+        // #2
+        Shape triangle = new Triangle(6,3,6,5,"red", "cyan");
+        Shape rectangle = new Rectangle(5,3,"blue","magenta");
+        Shape circle = new Circle(4,"orange","green");
+
+        circle.printPerimeter();
+        circle.printSquare();
+        circle.printShapeColor();
+        circle.printFillColor();
+
+        rectangle.printPerimeter();
+        rectangle.printSquare();
+        rectangle.printShapeColor();
+        rectangle.printFillColor();
+
+        triangle.printPerimeter();
+        triangle.printSquare();
+        triangle.printShapeColor();
+        triangle.printFillColor();
     }
 }
