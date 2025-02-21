@@ -1,5 +1,5 @@
-public class MyArraySizeException extends Exception {
-    public MyArraySizeException() {
-        super("Ошибка. Неверный размер массива.");
+public class MyArraySizeException extends RuntimeException {
+    public MyArraySizeException(String message) {
+        super(message);
     }
 }
