@@ -1,7 +1,6 @@
-import java.util.HashSet;
-
 public class Main {
     public static void main(String[] args) {
+        // #1
         StudentSet students = new StudentSet();
         students.add(new Student("Алексей", "Группа 1", 2, new int[]{4, 5, 3, 2}));
         students.add(new Student("Мария", "Группа 2", 1, new int[]{2, 2, 3, 2}));
@@ -22,22 +21,22 @@ public class Main {
 
         System.out.println("Студенты 3 курса:");
         printStudents(students, 3);
+        printStudents(students, 4);
+
+        // #2
+        PhoneDirectory phoneDirectory = new PhoneDirectory();
+        phoneDirectory.add("Иванов", "+7-900-123-45-67");
+        phoneDirectory.add("Петров", "+7-901-234-56-78");
+        phoneDirectory.add("Иванов", "+7-911-111-22-33");
+
+        System.out.println("Телефоны Иванова: " + phoneDirectory.get("Иванов"));
+        phoneDirectory.printDirectory();
     }
 
-    public static void printStudents(StudentSet students, int course) {
+    static void printStudents(StudentSet students, int course) {
         students.stream()
                 .filter(student -> student.getCourse() == course)
                 .map(Student::getName)
                 .forEach(System.out::println);
-    }
-}
-
-class StudentSet extends HashSet<Student> {
-    public void removeLowPerformers() {
-        this.removeIf(student -> student.getAverageGrade() < 3);
-    }
-
-    public void promoteStudents() {
-        this.forEach(Student::promote);
     }
 }
